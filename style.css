@@ -1,0 +1,160 @@
+@font-face {
+    font-family: 'Halyard';
+    src: url('HalyardDisBook.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Halyard';
+    src: url('HalyardDisMed.otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    font-family: Halyard;
+    font-weight: normal;
+    font-size: 3.2vw;
+}
+
+:root {
+    --myColor: rgb(155, 155, 155);
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0;
+    /*1em;*/
+    /*border-bottom: 1px solid black;*/
+}
+
+.header img {
+    width: 50px;
+    object-fit: contain;
+    height: 1em;
+    margin-top: 0;
+}
+
+.courseName {
+    font-size: .95rem;
+    font-weight: bold;
+    margin-top: .3em;
+    margin-bottom: .1em;
+    border-bottom: 1px solid black;
+}
+
+.content .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .row .title {
+    width: 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 0;
+    line-height: 120%;
+}
+
+/*Prof. Valentina Rachiele - Marquee per titoli di corsi lunghi*/
+.title-text {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.title-text .spacer {
+    display: inline-block;
+    width: 3em;
+    /* Spazio tra le ripetizioni del testo */
+}
+
+.title-text.scrolling {
+    animation: marquee 15s linear infinite;
+}
+
+.title:hover .title-text.scrolling {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* -50% perché il testo è duplicato */
+    }
+}
+
+/*Fine modifiche Prof. Valentina Rachiele*/
+.content .row .place {
+    width: 30%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: right;
+    color: var(--myColor);
+    text-transform: uppercase;
+
+}
+
+.multiProfessor {
+    line-height: 80%;
+}
+
+.professor {
+    margin-left: 20%;
+    color: var(--myColor);
+    font-size: .65em;
+    margin-bottom: -5px;
+}
+
+.other_prof {
+    color: var(--myColor);
+    font-size: .7em;
+    margin-bottom: -2px;
+}
+
+.content .row_hour,
+.content .row_hour * {
+    width: 20%;
+    color: var(--myColor);
+    font-size: .7em;
+    text-transform: uppercase;
+    margin-bottom: -2px;
+}
+
+/* prof. Rachiele: facciamo nevicare (11 dicembre 2025) */
+/* Stile base del fiocco */
+/*.fiocco-neve {
+    position: fixed;
+    top: -20px;
+    z-index: 9999;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgb(219, 234, 246) 20%, rgba(255, 255, 255, 0) 70%);
+    animation-name: nevicata;
+    animation-timing-function: linear;
+    animation-iteration-count: 1; 
+}
+@keyframes nevicata {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(110vh) translateX(50px);
+    }
+}
+
+.fiocco-neve {
+    animation-duration: 10s;
+}
+
+@media (orientation: portrait) {
+    .fiocco-neve {
+        animation-duration: 20s;
+    }
+}*/
