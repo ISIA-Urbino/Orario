@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISIA U – ORARIO</title>
-  <link rel="stylesheet" href="style.css">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-</head>
-
-<body style='width: calc(100vw - 16px); margin: 8px; height: 100vh; background-color: white;'>
-  <!--Add buttons to initiate auth sequence and sign out-->
-  <div class="header">
-    <span>ISIA U</span>
-    <pre id="date" style="white-space: pre-wrap; margin: 0;">data di oggi</pre>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-  <script type="text/javascript">
     let months = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
     let months_names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -62,19 +39,9 @@
     var calendarid_F1 = 'c_m5kar9b71g3httgaur880epoc8@group.calendar.google.com';
     var calendarid_F2 = 'c_ha5sogjncfl2uihger5lich72k@group.calendar.google.com';
 
-    let todayStart = new Date();
-    todayStart.setHours(0, 0, 0, 0);
-    let timeMinStr = todayStart.toISOString();
-
-    let todayEnd = new Date();
-    todayEnd.setHours(23, 59, 59, 999);
-    let timeMaxStr = todayEnd.toISOString();
-
-    let calendarParams = '&timeMin=' + timeMinStr + '&timeMax=' + timeMaxStr + '&singleEvents=true&maxResults=2500';
-
     $.ajax({
       type: 'GET',
-      url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid + '/events?key=' + mykey + calendarParams), //Prof. Valentina Rachiele: ho aggiunto "maxResults=2500" il 17/11/2025 perché altrimenti la pagina non mostrava gli eventi successivi al 250esimo
+      url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'), //Prof. Valentina Rachiele: ho aggiunto "maxResults=2500" il 17/11/2025 perché altrimenti la pagina non mostrava gli eventi successivi al 250esimo
       dataType: 'json',
       success: function (response) {
         const eventsT1 = response.items;
@@ -89,7 +56,7 @@
     function getT2() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_T2 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_T2 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsT2 = response.items;
@@ -105,7 +72,7 @@
     function getT3() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_T3 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_T3 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsT3 = response.items;
@@ -121,7 +88,7 @@
     function getE1() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_E1 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_E1 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsE1 = response.items;
@@ -137,7 +104,7 @@
     function getE2() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_E2 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_E2 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsE2 = response.items;
@@ -153,7 +120,7 @@
     function getI1() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_I1 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_I1 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsI1 = response.items;
@@ -170,7 +137,7 @@
     function getI2() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_I2 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_I2 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsI2 = response.items;
@@ -186,7 +153,7 @@
     function getF1() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_F1 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_F1 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsF1 = response.items;
@@ -202,7 +169,7 @@
     function getF2() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_F2 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_F2 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsF2 = response.items;
@@ -291,8 +258,6 @@
               let cleanDescription = stripHtmlTags(myCourse[i].description);
               let professor_string = cleanDescription.split('docent')[1];
 
-              if (!professor_string) { professor_string = " "; }
-
               //is singular or plural?
               if (professor_string[0] == 'e') {
                 //singular
@@ -360,36 +325,4 @@
           + "</div>");
       }
     }
-  </script>
-
-  <!-- prof. Rachiele: facciamo nevicare (11 dicembre 2025) -->
-  <!--<script>
-function creaFiocco() {
-    const fiocco = document.createElement('div');
-    fiocco.classList.add('fiocco-neve');
-    
-    fiocco.style.left = Math.random() * 100 + 'vw';
-    
-    const size = (Math.random() * 10) + 10; 
-    fiocco.style.width = size + 'px';
-    fiocco.style.height = size + 'px';
-    fiocco.style.opacity = Math.random();
-
-    const randomDuration = (Math.random() * 5);
-    fiocco.style.animationDuration = `calc(var(--durata-base, 20s) + ${randomDuration}s)`;
-
-    document.body.appendChild(fiocco);
-
-    fiocco.addEventListener('animationend', () => {
-        fiocco.remove();
-    });
-}
-
-// Avvia la nevicata
-// Crea un fiocco ogni 300 millisecondi (circa 3 al secondo). 
-// Puoi aumentare il numero (es. 500 o 1000) se vuoi meno neve e più performance.
-setInterval(creaFiocco, 300);
-    </script>-->
-</body>
-
-</html>
+  

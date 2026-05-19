@@ -62,19 +62,9 @@
     var calendarid_F1 = 'c_m5kar9b71g3httgaur880epoc8@group.calendar.google.com';
     var calendarid_F2 = 'c_ha5sogjncfl2uihger5lich72k@group.calendar.google.com';
 
-    let todayStart = new Date();
-    todayStart.setHours(0, 0, 0, 0);
-    let timeMinStr = todayStart.toISOString();
-
-    let todayEnd = new Date();
-    todayEnd.setHours(23, 59, 59, 999);
-    let timeMaxStr = todayEnd.toISOString();
-
-    let calendarParams = '&timeMin=' + timeMinStr + '&timeMax=' + timeMaxStr + '&singleEvents=true&maxResults=2500';
-
     $.ajax({
       type: 'GET',
-      url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid + '/events?key=' + mykey + calendarParams), //Prof. Valentina Rachiele: ho aggiunto "maxResults=2500" il 17/11/2025 perché altrimenti la pagina non mostrava gli eventi successivi al 250esimo
+      url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'), //Prof. Valentina Rachiele: ho aggiunto "maxResults=2500" il 17/11/2025 perché altrimenti la pagina non mostrava gli eventi successivi al 250esimo
       dataType: 'json',
       success: function (response) {
         const eventsT1 = response.items;
@@ -89,7 +79,7 @@
     function getT2() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_T2 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_T2 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsT2 = response.items;
@@ -105,7 +95,7 @@
     function getT3() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_T3 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_T3 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsT3 = response.items;
@@ -121,7 +111,7 @@
     function getE1() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_E1 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_E1 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsE1 = response.items;
@@ -137,7 +127,7 @@
     function getE2() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_E2 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_E2 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsE2 = response.items;
@@ -153,7 +143,7 @@
     function getI1() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_I1 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_I1 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsI1 = response.items;
@@ -170,7 +160,7 @@
     function getI2() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_I2 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_I2 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsI2 = response.items;
@@ -186,7 +176,7 @@
     function getF1() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_F1 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_F1 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsF1 = response.items;
@@ -202,7 +192,7 @@
     function getF2() {
       $.ajax({
         type: 'GET',
-        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_F2 + '/events?key=' + mykey + calendarParams),
+        url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid_F2 + '/events?key=' + mykey + '&timeMin=2025-01-06T00:00:00.209Z&maxResults=2500'),
         dataType: 'json',
         success: function (response) {
           const eventsF2 = response.items;
@@ -290,8 +280,6 @@
               // Pulisci l'HTML prima di processare
               let cleanDescription = stripHtmlTags(myCourse[i].description);
               let professor_string = cleanDescription.split('docent')[1];
-
-              if (!professor_string) { professor_string = " "; }
 
               //is singular or plural?
               if (professor_string[0] == 'e') {
