@@ -21,6 +21,9 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+  <!-- Carica le configurazioni (chiavi API) ignorate da Git -->
+  <script src="config.js"></script>
+
   <script type="text/javascript">
     let months = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
     let months_names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -48,10 +51,10 @@
     updateDateTime();
     setInterval(updateDateTime, 1000);
 
-    const CLIENT_ID = '463574677999-d01n0fa6vqtp6o2od265hiat3f1ksqd8.apps.googleusercontent.com';
-    const API_KEY = 'AIzaSyCibrPrZGK2mUWwEV_3W7erdR0j4Be2BDg';
+    const CLIENT_ID = CONFIG.CLIENT_ID;
+    const API_KEY = CONFIG.API_KEY;
 
-    var mykey = 'AIzaSyCibrPrZGK2mUWwEV_3W7erdR0j4Be2BDg';
+    var mykey = CONFIG.MY_KEY;
     var calendarid = 'c_7ve6ne61m5cufeiu6q42oulipc@group.calendar.google.com';
     var calendarid_T2 = 'c_njnaf2jfu79f5qltnmcuijh9oc@group.calendar.google.com';
     var calendarid_T3 = 'c_ga9eia2je05c9ps8q4k0e3eqpo@group.calendar.google.com';
