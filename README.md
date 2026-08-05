@@ -1,1 +1,3 @@
-# orario
+# ISIA U - Orario
+
+Originariamente creato da [Carlo Schlatter](https://schlatterca.com/){:target="_blank"}, questo progetto consente a studenti e docenti di ISIA Urbino di consultare l'orario delle lezioni del giorno. L'orario è visibile all'indirizzo [https://www.progetti-isiau.net/orario/](https://www.progetti-isiau.net/orario/){:target="_blank"} e, proiettato su uno schermo dedicato, all'entrata della suggestiva sede dell'ISIA, a Urbino.
